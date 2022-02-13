@@ -16,7 +16,6 @@ app.use(express.static('./public'))
 //     .then(console.log('connected to MongoDB'))
 //     .catch(console.error());
 
-
 // express-hadlebars engine and views configuration
 
 app.engine('.hbs', engine({extname: '.hbs'}));
@@ -32,4 +31,4 @@ app.use('/upload', uploadRoute);
 
 
 
-app.listen(PORT, console.log('Connected to ' + PORT));
+app.listen(process.env.PORT || PORT, console.log('Connected to ' + PORT));
