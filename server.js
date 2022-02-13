@@ -10,12 +10,11 @@ const app = express();
 
 app.use(express.static('./public'))
 
-
 // mongo db connection
 
-mongoose.connect('mongodb+srv://alifromim:Mariam7-una@cluster0.9h7xo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-    .then(console.log('connected to MongoDB'))
-    .catch(console.error());
+// mongoose.connect('mongodb+srv://alifromim:Mariam7-una@cluster0.9h7xo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+//     .then(console.log('connected to MongoDB'))
+//     .catch(console.error());
 
 
 // express-hadlebars engine and views configuration
