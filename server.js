@@ -2,7 +2,8 @@ PORT = 8000;
 const express = require('express');
 const {engine} = require('express-handlebars');
 const mongoose = require('mongoose')
-const indexRoute = require('./routes/index')
+const bodyParser = require('body-parser');
+const indexRoute = require('./routes/index');
 const uploadRoute = require('./routes/upload');
 const app = express();
 
@@ -18,17 +19,21 @@ app.use(express.static('./public'))
 
 // express-hadlebars engine and views configuration
 
-app.engine('.hbs', engine({extname: '.hbs'}));
+app.engine('.hbs', engine({
+    extname: '.hbs',
+    partialsDir: __dirname + '/views/partials/'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');
+
+// body-parser configurations
+
+app.use(bodyParser.urlencoded({limit: '10mb', extended: false}));
 
 // routes configuration
 
 app.use('/', indexRoute);
 
 app.use('/upload', uploadRoute);
-
-
 
 
 app.listen(process.env.PORT || PORT, console.log('Connected to ' + PORT));
