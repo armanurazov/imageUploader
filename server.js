@@ -10,7 +10,7 @@ const app = express();
 
 // handling public files 
 
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 
 // mongo db connection
 

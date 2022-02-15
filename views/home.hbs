@@ -1,4 +1,14 @@
-
 <h2>
     This is the home page
 </h2>
+
+{{#each imageList}}
+<div class="col-md-4">
+    <div class="text-success" style="font-size: large;
+            font-weight: 700;">{{this.name}}</div>
+    <img src="{{this.src}}">
+</div>
+{{/each}}
+</div>
+
+    <img src="https://github.com/armanurazov/imageUploader/blob/main/public/images/6.jpeg">

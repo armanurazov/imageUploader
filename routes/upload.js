@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const path = require('path');
 const router = express.Router();
 
 // multer settings
@@ -22,9 +23,14 @@ router.get('/', (req,res) => {
     res.render('upload', {layout: 'main'});
 })
 
+const imageList = [];
+
 router.post('/', upload.single('image'), async (req,res) => {
     const imageName = req.file.originalname;
-    res.redirect('/upload');
+    const imageSrc = path.join('public', imageName);
+    imageList.push({src: imageSrc, name: imageName});
+    console.log(imageSrc)
+    res.render('home', {imageList: imageList});
 })
 
 
