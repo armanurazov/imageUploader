@@ -7,9 +7,10 @@ const indexRoute = require('./routes/index');
 const uploadRoute = require('./routes/upload');
 const app = express();
 
+
 // handling public files 
 
-app.use(express.static('./public'))
+app.use(express.static('./public'));
 
 // mongo db connection
 
