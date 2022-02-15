@@ -8,7 +8,7 @@ const router = express.Router();
 const imageMimeTypes = ['image/apng', 'image/avif', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
 const storageEngine = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/images');
+        cb(null, './public/images'); 
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname);
@@ -27,7 +27,7 @@ const imageList = [];
 
 router.post('/', upload.single('image'), async (req,res) => {
     const imageName = req.file.originalname;
-    const imageSrc = path.join('public', imageName);
+    const imageSrc = path.join('images', imageName);
     imageList.push({src: imageSrc, name: imageName});
     console.log(imageSrc)
     res.render('home', {imageList: imageList});
