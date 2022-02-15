@@ -1,8 +1,9 @@
 const express = require('express');
+const upload = require('./upload')
 const router = express.Router();
 
 router.get('/', (req,res) => {
-    res.render('home', {layout: 'main'});
+    res.render('home', {imageList: upload.imageList, layout: 'main'});
 })
 
 

@@ -1,8 +1,13 @@
-<div class='title-text'>
-    <h2>This is the upload page</h2>
-</div>
-<br>
 <form action='/upload' method='POST' enctype="multipart/form-data">
-    <input type="file" name="image">
-    <input type="submit">
+    <div class="container">
+        <div class="row title-text-upload">
+            <label class="submit-label">
+                <input type="file" name="image">
+                <h2 class='title-text-upload'>Click here to upload</h2>
+            </label>
+        </div>
+        <div class="row submit-button">
+            <input type="submit" id="submit-button">
+        </div>
+    </div>
 </form>

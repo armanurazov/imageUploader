@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: false}));
 
 app.use('/', indexRoute);
 
-app.use('/upload', uploadRoute);
+app.use('/upload', uploadRoute.router);
 
 
 app.listen(process.env.PORT || PORT, console.log('Connected to ' + PORT));
