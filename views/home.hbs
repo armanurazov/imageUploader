@@ -1,12 +1,15 @@
-<h2>
-    This is the home page
-</h2>
+<link rel='stylesheet' href='../public/styles/style.css'>
+
+<div class='title-text'>
+     <h2>Your Gallery</h2>
+</div>
+
 
 {{#each imageList}}
 <div class="col-md-4">
     <div class="text-success" style="font-size: large;
             font-weight: 700;">{{this.name}}</div>
-    <img src="{{this.src}}">
+    <img src="{{this.src}}" width="300" height="250">
 </div>
 {{/each}}
 </div>
