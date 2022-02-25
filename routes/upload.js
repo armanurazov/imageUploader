@@ -26,11 +26,13 @@ router.get('/', (req,res) => {
 const imageList = [];
 
 router.post('/', upload.single('image'), async (req,res) => {
-    const imageName = req.file.originalname;
-    const imageSrc = path.join('images', imageName);
-    imageList.push({src: imageSrc, name: imageName});
-    console.log(imageSrc)
-    res.render('home', {imageList: imageList});
+    if(req.file){
+        const imageName = req.file.originalname;
+        const imageSrc = path.join('images', imageName);
+        imageList.push({src: imageSrc, name: imageName});
+        res.render('home', {imageList: imageList});
+    }else
+    res.render('upload', {layout: 'main'});
 })
 
 
